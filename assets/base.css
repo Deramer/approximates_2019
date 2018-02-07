@@ -1,0 +1,170 @@
+body {
+	margin: 0;
+}
+
+p {
+	overflow-wrap: break-word;
+}
+
+a:visited {
+	color: blue;
+}
+
+#layout {
+	margin: 8px;
+	max-width: 1000px;
+	margin-left: auto;
+	margin-right: auto;
+	position: relative;
+}
+
+#sidebar {
+	width: 200px;
+	position: absolute;
+	right: 5px;
+	top: 0px;
+	margin: 5px;
+}
+
+#sidebar p {
+	margin-top: 0px;
+}
+
+#content {
+	max-width: 800px;
+	margin-right: 250px;
+	margin-left: 10px;
+}
+
+#footer {
+	/*position: fixed;
+	bottom: 0px;
+	width: 100%;
+	box-sizing: border-box;
+	*/
+	display: none;
+	background: black;
+	color: white;
+	padding: 10px 15px;
+	margin: 0px;
+}
+
+.header {
+	background: black;
+	color: white;
+	padding: 10px 15px;
+	margin: 0px;
+}
+
+.header-list {
+	margin: 5px 0px;
+	max-width: 1000px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 0px;
+}
+
+.header {
+	list-style: none;
+}
+
+.header li {
+	display: inline;
+	padding-right: 10px;
+}
+
+.header .header-mobile {
+	display: none;
+}
+
+.header .header-mobile-right {
+	float: right;
+}
+
+.header .header-user {
+	float: right;
+	padding-right: 0px;
+	padding-left: 15px;
+}
+
+.header li a {
+	color: white;
+}
+
+.header li a:visited {
+	color: white;
+}
+
+.header li a:hover {
+	color: gray;
+}
+
+.header .header-avatar img {
+	position: relative;
+	width: 33px;
+	height: 33px;
+	bottom: 7px;
+	left: 5px;
+}
+
+.footer-devs {
+	margin: 5px;
+}
+
+.sidebar-timestamp {
+	display: none;
+}
+
+.sidebar-element p {
+	margin: 0px;
+}
+
+.sidebar-element + .sidebar-element {
+	margin-top: 20px;
+}
+
+.sidebar-element:last-child {
+	margin-bottom: 10px;
+}
+
+.sidebar-element .sidebar-element-meta {
+	font-size: 11px;
+	margin-bottom: 2px;
+}
+
+@media screen and (max-width: 640px) {
+	.header li {
+		display: none;
+	}
+
+	.header li.header-show {
+		display: block;
+		float: none;
+		padding: 5px;
+	}
+/*
+	.header li:last-child {
+		padding-bottom: 0px;
+	}
+*/
+	.header .header-mobile {
+	       padding: 5px;
+       }	       
+
+	.header .header-mobile {
+		display: inline-block;
+	}
+
+	#header-mobile-icon {
+		cursor: pointer;
+	}
+
+	#sidebar {
+		position: static;
+		width: auto;
+	}
+
+	#content {
+		margin-right: 10px;
+	}
+}
