@@ -4,6 +4,12 @@
 	<title>Приближённые методы аналитических вычислений 2018</title>
 	<link rel='stylesheet' href='assets/base.css'>
         <link rel='stylesheet' href='assets/normalize.css'>
+        <script src="http://code.jquery.com/jquery-3.3.1.min.js"
+              integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+              crossorigin="anonymous">
+        </script>
+        <script src='/assets/tendina.min.js'></script>
+        <script> $('#materials-ul').tendina() </script>
 </head>
 
 <body>
@@ -20,10 +26,13 @@
 	<div id="layout">
 		<div id="content">
                     <h3>Материалы, задачи, тесты</h3>
-                    <h4>Первый семинар</h4>
-                    <p><a href='https://github.com/deramer/approximates_2018/blob/master/sem1/sem1.pdf'>Материалы и задачи</a></p>
-                    <p><a href='https://github.com/deramer/approximates_2018/blob/master/sem1/tests.nb'>Файл с тестами, Mathematica</a></p>
-		</div>
+                    <ul id='materials-ul'>
+                        <li><a href='#'>Первый семинар</a>
+                            <ul>
+                            <li><a href='https://github.com/deramer/approximates_2018/blob/master/sem1/sem1.pdf'>Материалы и задачи</a></li>
+                            <li><a href='https://github.com/deramer/approximates_2018/blob/master/sem1/tests.nb'>Файл с тестами, Mathematica</a></li>
+		        </li>
+                </div>
 	</div>
 </body>
 </html>
