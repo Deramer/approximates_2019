@@ -136,6 +136,10 @@ a:visited {
     list-style-type: none;
 }
 
+#materials-ul > li > ul {
+    list-style-type: none;
+}
+
 #materials-ul > li {
     background-color: #e3e3e3;
     padding: 5px;
@@ -157,6 +161,11 @@ a:visited {
     color: black;
     text-decoration: none;
     font-weight: bold;
+}
+
+.link-inactive {
+    color: black;
+    text-decoration: none;
 }
 
 @media screen and (max-width: 640px) {
