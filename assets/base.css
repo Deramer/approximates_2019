@@ -138,10 +138,21 @@ a:visited {
 
 #materials-ul > li {
     background-color: #d3d3d3;
+    padding: 5px;
+    border: 5px;
 }
 
 #materials-ul > li > a::before {
-    content: '\25BC';
+    content: '<div class="arrow-down"></div>';
+}
+
+.arrow-down {
+  width: 0; 
+  height: 0; 
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  
+  border-top: 20px solid #f00;
 }
 
 #materials-ul > li > a {
