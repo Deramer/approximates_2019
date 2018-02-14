@@ -141,7 +141,7 @@ a:visited {
 }
 
 #materials-ul > li > a::before {
-    content: '&#9660;';
+    content: '\25BC';
 }
 
 #materials-ul > li > a {
