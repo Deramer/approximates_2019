@@ -136,9 +136,14 @@ a:visited {
     list-style-type: none;
 }
 
-#materials-ul > li > a::before {
-    content: '&#9660';
+#materials-ul > li {
+    color: #d3d3d3;
 }
+
+#materials-ul > li > a::before {
+    content: '&#9660;';
+}
+
 #materials-ul > li > a {
     color: black;
     text-decoration: none;
