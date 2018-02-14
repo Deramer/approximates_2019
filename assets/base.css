@@ -137,7 +137,7 @@ a:visited {
 }
 
 #materials-ul > li {
-    color: #d3d3d3;
+    background-color: #d3d3d3;
 }
 
 #materials-ul > li > a::before {
