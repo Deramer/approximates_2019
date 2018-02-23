@@ -1,0 +1,85 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{graphicx}
+\usepackage{latexsym}
+\usepackage{bm,amssymb}
+\usepackage{mathrsfs}
+\usepackage[unicode,colorlinks=true,filecolor=blue, menucolor=black, linkcolor=black, citecolor=black,pagebackref=white]{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{amsmath}
+\usepackage{feynmp}
+\usepackage{caption}
+\usepackage[left=2cm,right=2cm, top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
+\begin{document}
+\title{Метод перевала как первый член асимптотического разложения. Дополнение к семинару по теме: <<Метод перевала>>}
+\maketitle
+Рассмотрим интеграл
+$$
+\int_{-\infty}^{\infty}dxe^{-\lambda f(x)}dx
+$$
+при $\lambda\to+\infty$. Пусть функция $f(x)$ имеет на всей области интегрирования ровно одну перевальную точку $x_0$. Кроме того, пусть вблизи $x_0$ функция $f(x)$ аналитична (т.е. представляется в виде суммы бесконечного ряда Тейлора - например, функция $\sqrt{x}$ таким свойством при $x_0=0$ не обладает) и $f^{''}(x_0)\ne0$. Выполним замену переменной:
+$$
+f(x)-f(x_0)=s^2
+$$
+\section*{Утверждение} Из аналитичности $f(x)$ и $f^{''}(x_0)\ne0$ следует, что $x(s)$ - тоже аналитична.
+\section*{Доказательство}
+Из аналитичности функции $f(x)$ получаем:
+$$
+f(x)-f(x_0)=\sum_{k=2}^{\infty}a_k (x-x_0)^k=s^2
+$$
+Первая производная отсутствует в силу того, что $x_0$ - перевальная точка. Выражая $s$ и выбирая правильный знак (такой, чтобы исходный интеграл был положительным), получаем:
+\begin{equation}\label{eq:main}
+s=(x-x_0)\sqrt{a_2+a_3(x-x_0)+...}=\sum_{n=1}^{\infty}a_{n}^{'}(x-x_0)^n
+\end{equation}
+Полученный ряд можно обратить и получить ряд для функции $x(s)$. Действительно, подставляя разложение
+$$
+x=x_0+\sum_{k=1}^{\infty}c_ks^k
+$$
+в ($\ref{eq:main}$), получаем:
+$$
+s=\sum_{n=1}^{\infty}a_n^{'}\left(\sum_{k=1}^{\infty}c_ks^k\right)^n
+$$
+Отсюда, путём последовательного приравнивания степеней $s$ в левой и правой частях, можно определить коэффициенты $c_k$. Для $c_1$ и $c_2$ получаются следующие соотношения:
+$$
+1=a_1^{'}c_1
+$$
+
+$$
+0=a_1^{'}c_2+a_2^{'}c_1^2
+$$
+\textbf{Утверждение} можно считать доказанным (разумеется, на физическом уровне строгости).
+
+\noindent
+Исходный интеграл переписывается в виде:
+$$
+e^{-\lambda f(x_0)}\int_{-\infty}^{+\infty}e^{-\lambda s^2}\frac{dx(s)}{ds}ds=\frac{e^{-\lambda f(x_0)}}{\sqrt{\lambda}}\int dt e^{-t^2}t^k \frac{c^{'}_k}{\lambda^{k/2}}\sim\frac{e^{-\lambda f(x_0)}}{\sqrt{\lambda}}\sum_{k=0}^{\infty}\frac{c_{2k}^{'}}{\lambda^{k}}\Gamma\left(k+\frac{1}{2}\right)
+$$
+Здесь следует пояснить несколько моментов. Во-первых, случилось переобозначение коэффициентов $c_k$:
+$$
+\frac{dx}{ds}=\sum_{k=0}^{\infty}c_k^{'}s^k=\sum_{k=1}^{\infty}kc_{k}s^{k-1}
+$$
+Что более важно, в последнем переходе фигурирует значок $\sim$. Его следует понимать так:
+$$
+e^{-\lambda f(x_0)}\int_{-\infty}^{+\infty}e^{-\lambda s^2}\frac{dx(s)}{ds}ds=\frac{e^{-\lambda f(x_0)}}{\sqrt{\lambda}}\sum_{k=0}^{N-1}\frac{c_{2k}^{'}}{\lambda^{k}}\Gamma\left(k+\frac{1}{2}\right)+O\left(\frac{1}{\lambda^{N}}\right)
+$$
+Здесь бы опять имеем дело с асимптотическим рядом. В силу того, что $\Gamma\left(k+\frac{1}{2}\right)$ при больших $k$ растёт факториально, формальная сумма по $k$ до $\infty$ расходится. Однако, левая часть остаётся конечной в силу наличия остаточного члена, у которого тоже есть факториально растущий с $N$ коэффициент. Формально это $O\left(\frac{1}{\lambda^{N}}\right)$ получается, если написать $x(s)-x_0=\sum_{k=1}^{N-1}c_k s^k+\frac{1}{N!}x^{(N)}(s_1)s^{N}$ - формула Тейлора с остаточным членом в форме Лагранжа (здесь $s_1\in[0;s]$).
+
+\noindent
+Итак, мы выяснили, что метод перевала является одним из примеров асимптотического разложения.
+\section*{Задачи для домашнего решения (необязательные)}
+
+\noindent \textbf {Задача 1 (2 балла)} 
+
+\noindent Методом, изложенным на семинаре, найдите первые 3 члена асимптотического разложения $\Gamma(z+1)$ при $z\gg1$.
+
+\noindent \textbf {Задача 2 (2 балла)}
+
+\noindent Найдите первые 2 члена асимптотического разложения при $\lambda\to+\infty$ интеграла:
+$$
+\int_{-\infty}^{+\infty}\cos\left(\lambda\cos x\right)\frac{\sin x}{x}dx
+$$ 
+Вам может пригодиться знание следующей суммы:
+$$
+\sum_{n=1}^{\infty}\frac{1}{n^2}=\frac{\pi^2}{6}
+$$
+\end{document}
