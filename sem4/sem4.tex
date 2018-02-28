@@ -1,0 +1,463 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{graphicx}
+\usepackage{bm,amssymb}
+\usepackage{mathrsfs}
+\usepackage[unicode,colorlinks=true,filecolor=blue, menucolor=black, linkcolor=black, citecolor=black,pagebackref=white]{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{amsmath}
+\usepackage{feynmp}
+\usepackage{caption}
+\usepackage[left=2cm,right=2cm, top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
+\begin{document}
+\title{Семинар по теме: <<Интегралы с параметром>>}
+\maketitle
+
+\subsection*{Ликбез}
+
+Порой приходится иметь дело с интегралами вида:
+\[
+B(p,q)=\int_{0}^{1}t^{p-1}(1-t)^{q-1}dt
+\]
+
+\noindent
+или интегралами, которые сводятся к интегралам такого вида подстановкой.
+Это --- так называемый бета-интеграл Эйлера или просто бета-функция.
+Этот интеграл удобно выражается через $\Gamma(z)$ - гамма-функцию
+Эйлера, значения и свойства которой уже хорошо известны из предыдущих
+семинаров; это позволяет просто получать значения этого интеграла
+при различных значениях параметров:
+\[
+B(p,q)=\frac{\Gamma(p)\Gamma(q)}{\Gamma(p+q)}
+\]
+
+\noindent
+Добавим еще одно полезное свойство гамма-функции (приводим без доказательства):
+\[
+\Gamma(z)\Gamma(1-z)=\frac{\pi}{\sin\pi z}
+\]
+
+\noindent
+Кроме того, в задачах этого семинара будет использоваться соотношение:
+
+$$
+\frac{1}{x^{m}}	=\frac{1}{\Gamma(m)}\int_{0}^{\infty}t^{m-1}e^{-tx}dt
+$$
+
+\subsection*{Задача 1 (интегральные представления и подстановки)}
+
+Вычислим интеграл Френеля:
+
+\[
+I=\int_{0}^{\infty}\cos x^{2}dx
+\]
+
+
+
+\subsubsection*{Решение}
+
+Перейдем к переменной интегрирования $t=x^{2}$. Получим:
+
+\[
+I=\int_{0}^{\infty}\cos x^{2}dx=\int_{0}^{\infty}\frac{\cos t}{2\sqrt{t}}dt
+\]
+
+\noindent
+Следующий шаг нетривиален. Для взятия этого интеграла удобно воспользоваться
+``интегральным представлением функции $1/\sqrt{t}$''. Такие интегральные
+представления - часто используемый приём, позволяющий брать определённые
+интегралы; в данном случае в роли этого интегрального представления
+будет интеграл Гаусса:
+
+\[
+\frac{1}{\sqrt{t}}=\frac{2}{\sqrt{\pi}}\int_{0}^{\infty}e^{-tx^{2}}dx\Rightarrow I=\frac{1}{\sqrt{\pi}}\int_{0}^{\infty}dt\int_{0}^{\infty}dxe^{-tx^{2}}\cos t
+\]
+
+\noindent
+Теперь возьмем интеграл по $t$, обозначив подынтегральную функцию
+как $J(x^{2})$. Тогда:
+
+\[
+J(a)=\int_{0}^{\infty}e^{-at}\cos tdt={\rm Re}\int_{0}^{\infty}e^{-at+it}dt={\rm Re}\frac{1}{a-i}=\frac{a}{a^{2}+1}
+\]
+
+\noindent
+Тем самым, получаем следующий интеграл:
+
+\begin{eqnarray*}
+I & = & \frac{1}{\sqrt{\pi}}\int_{0}^{\infty}\frac{x^{2}}{1+x^{4}}dx
+\end{eqnarray*}
+
+\noindent
+Приведём два способа взятия этого интеграла.
+
+
+\paragraph{``Правильный'' способ}
+
+Получившийся интеграл является интегралом от дробно-рациональной функцией
+и его можно взять стандартным методом разбиения на элементарные дроби.
+Он довольно громоздкий, поэтому приведём тут метод, позволяющий вычислить
+интеграл проще. Сделав замену $x=\frac{1}{t}$, заметим следующее:
+
+\[
+I=\frac{1}{\sqrt{\pi}}\int_{\infty}^{0}\left(-\frac{dt}{t^{2}}\right)\frac{1/t^{2}}{1+1/t^{4}}=\frac{1}{\sqrt{\pi}}\int_{0}^{\infty}\frac{1}{1+t^{4}}dt
+\]
+
+\noindent
+Беря полусумму двух представлений для интеграла $I$, получим:
+
+\[
+I=\frac{1}{2\sqrt{\pi}}\int_{0}^{\infty}\frac{1+x^{2}}{1+x^{4}}dx
+\]
+
+\noindent
+Теперь можно перейти к стандарнтой переменной для интегрирования симметрических
+многочленов $t=x-\frac{1}{x}$; при этом $dt=\left(1+\frac{1}{x^{2}}\right)dx$,
+получим:
+\[
+I=\frac{1}{2\sqrt{\pi}}\int_{-\infty}^{\infty}\frac{dt}{t^{2}+2}=\frac{1}{2\sqrt{2\pi}}\left.\arctan\frac{t}{\sqrt{2}}\right|_{-\infty}^{\infty}=\frac{1}{2}\sqrt{\frac{\pi}{2}}
+\]
+
+
+
+\paragraph{``Главный'' способ}
+
+Очень полезно научиться сводить такие интегралы к $B$-функции, о
+которой было рассказано выше. Перейдем в этом интеграле к переменной
+$t=\frac{1}{1+x^{4}}\Rightarrow x=\left(\frac{1-t}{t}\right)^{1/4}\Rightarrow dx=\frac{1}{4}\left(\frac{1-t}{t}\right)^{-3/4}\left(-\frac{dt}{t^{2}}\right)$.
+Имеем:
+
+\[
+I=\frac{1}{\sqrt{\pi}}\int_{1}^{0}\left(\frac{1-t}{t}\right)^{1/2}\cdot t\cdot\frac{1}{4}\left(\frac{1-t}{t}\right)^{-3/4}\left(-\frac{dt}{t^{2}}\right)=\frac{1}{4\sqrt{\pi}}\int_{0}^{1}t^{-3/4}(1-t)^{-1/4}dt=\frac{1}{4\sqrt{\pi}}B\left(\frac{1}{4},\frac{3}{4}\right)
+\]
+
+\noindent
+Используя приведенные выше свойства бета- и гамма-функций, получаем:
+
+\[
+B\left(\frac{1}{4},\frac{3}{4}\right)=\frac{\Gamma\left(\frac{1}{4}\right)\Gamma\left(\frac{3}{4}\right)}{\Gamma(1)}=\frac{\pi}{\sin\frac{\pi}{4}}=\pi\sqrt{2}\Rightarrow I=\frac{1}{2}\sqrt{\frac{\pi}{2}}
+\]
+
+
+
+\paragraph{Замечение }
+
+Заметим, что этот же ответ можно было получить гораздо проще, используя
+трюк с комплексными переменными и комплексным интегралом Гаусса. Нужно
+лишь обратить внимание на тонкость, связанную с тем, что $\sqrt{i}=\pm e^{i\pi/4}$,
+и необходимо выбрать правильный знак: 
+\[
+I=\int_{0}^{\infty}\cos x^{2}dx=\frac{1}{2}{\rm Re}\int_{-\infty}^{\infty}e^{ix^{2}}dx=\frac{1}{2}{\rm Re}\sqrt{\frac{\pi}{-i}}=\frac{\sqrt{\pi}}{2}{\rm Re}e^{i\pi/4}=\frac{1}{2}\sqrt{\frac{\pi}{2}}
+\]
+
+
+
+\subsection*{Задача 2 (дифференцирование и интегрирование по параметру)}
+
+Возьмём интеграл:
+
+\[
+I(\alpha,\beta)=\int_{0}^{\infty}\frac{\ln(\alpha^{2}+x^{2})}{\beta^{2}+x^{2}}dx
+\]
+
+
+
+\subsubsection*{Решение}
+
+Заметим, что без логарифма интеграл легко считается. Если мы продиффиренцируем
+интеграл по $\alpha$, то логарифм заменится на дробь, а интегралы
+с дробями считать легче:
+
+\[
+\frac{\partial I(\alpha,\beta)}{\partial\alpha}=\int_{0}^{\infty}\frac{2\alpha}{(\beta^{2}+x^{2})(\alpha^{2}+x^{2})}dx
+\]
+
+\noindent
+Пусть $\alpha\neq\beta$, тогда верно разложение: 
+\[
+\frac{1}{(\beta^{2}+x^{2})(\alpha^{2}+x^{2})}=\frac{1}{\alpha^{2}-\beta^{2}}\left(\frac{1}{\beta^{2}+x^{2}}-\frac{1}{\alpha^{2}+x^{2}}\right)
+\]
+
+\noindent
+и каждый полученый интеграл легко считается:
+
+\[
+\frac{\partial I(\alpha,\beta)}{\partial\alpha}=2\alpha\int_{0}^{\infty}\frac{1}{\alpha^{2}-\beta^{2}}\left(\frac{1}{\beta^{2}+x^{2}}-\frac{1}{\alpha^{2}+x^{2}}\right)dx=\frac{2\alpha}{\alpha^{2}-\beta^{2}}\frac{\pi}{2}\left(\frac{1}{\beta}-\frac{1}{\alpha}\right)=\frac{\pi}{(\alpha+\beta)\beta}
+\]
+
+\noindent
+На самом деле, при $\alpha=\beta$, эта формула тоже верна:
+
+\[
+\int_{0}^{\infty}\frac{2\alpha}{(\alpha^{2}+x^{2})^{2}}\cdot dx=-\frac{\partial}{\partial\alpha}\int_{0}^{\infty}\frac{dx}{\alpha^{2}+x^{2}}=-\frac{\partial}{\partial\alpha}\frac{\pi}{2\alpha}=\frac{\pi}{2\alpha^{2}}
+\]
+
+\noindent
+Теперь проинтегрируем полученное выражение по $\alpha$:
+
+\[
+I(\alpha,\beta)=\frac{\pi}{\beta}\ln(\alpha+\beta)+C(\beta)
+\]
+
+\noindent
+Тут ``постоянная'' $C(\beta)$ - произвольная функция, которая не
+зависит от $\alpha$. Чтобы найти её подставим в исходный интеграл
+$\alpha=0$:
+
+\[
+I\left(0,\beta\right)=2\int_{0}^{\infty}\frac{\ln x}{\beta^{2}+x^{2}}dx=\left|\begin{array}{c}
+x=\beta t\\
+dx=\beta dt
+\end{array}\right|=2\int_{0}^{\infty}\frac{\ln t+\ln\beta}{\beta(1+t^{2})}dt=\frac{\pi\ln\beta}{\beta}+2\int_{0}^{\infty}\frac{\ln t}{1+t^{2}}dt
+\]
+
+\noindent
+Последний интеграл равен нулю. Это просто показать, сделав замену $t=e^{z}$:
+
+\[
+\int_{0}^{\infty}\frac{\ln t}{1+t^{2}}dt=\int_{-\infty}^{\infty}\frac{z}{1+e^{2z}}e^{z}dz=\int_{-\infty}^{\infty}\frac{z}{e^{-z}+e^{z}}dz=0
+\]
+
+\noindent
+Итого $I(0,\beta)=\frac{\pi\ln\beta}{\beta}$ $\Rightarrow C(\beta)\equiv0$.
+Стоит заметить, что в решении мы неявно пользовались тем, что $\alpha,\beta>0$;
+но поскольку исходный интеграл очевидным образом не чувствителен к
+изменению их знака, то ответ в общем виде записывается как:
+
+\[
+I\left(\alpha,\beta\right)=\frac{\pi}{|\beta|}\ln(|\alpha|+|\beta|)
+\]
+
+
+
+\subsection*{Задача 3 (составление дифференциальных уравнений)}
+
+Вычислим интегралы Лапласа:
+\[
+I_{1}(a,\omega)=\int_{-\infty}^{\infty}\frac{\cos(\omega x)}{x^{2}+a^{2}}dx
+\]
+
+
+\[
+I_{2}(a,\omega)=\int_{-\infty}^{\infty}\frac{x\sin(\omega x)}{x^{2}+a^{2}}dx
+\]
+
+
+
+\subsubsection*{Решение}
+
+Обезразмерим интеграл, перейдя к переменной интегрирования $x=at$
+и введя ``безразмерный'' параметр $\alpha=\omega a$; для определенности
+далее будем считать, что $\alpha>0$. Получим:
+
+\[
+I_{1}\left(a,\omega\right)=\int_{-\infty}^{\infty}\frac{\cos\alpha x}{x^{2}+1}\cdot\frac{dx}{a}=\frac{1}{a}J(\alpha)
+\]
+
+\noindent
+Возьмем производную $J(\alpha)$ по $\alpha$:
+
+\[
+\frac{\partial}{\partial\alpha}J(\alpha)=\frac{\partial}{\partial\alpha}\int_{-\infty}^{\infty}\frac{\cos\alpha x}{x^{2}+1}dx=-\int_{-\infty}^{\infty}\frac{x\sin\alpha x}{x^{2}+1}dx
+\]
+
+\noindent
+Получившийся интеграл сходится, однако производная от него уже расходится.
+В таком случае используем такой трюк:
+
+\[
+\frac{\partial}{\partial\alpha}J(\alpha)=-\int_{-\infty}^{\infty}\frac{x^{2}\sin\alpha x}{x^{2}+1}\cdot\frac{dx}{x}=-\int_{-\infty}^{\infty}\left[1-\frac{1}{x^{2}+1}\right]\frac{\sin\alpha x}{x}dx=-\pi+\int_{-\infty}^{\infty}\frac{\sin(\alpha x)}{x^{2}+1}\cdot\frac{dx}{x}
+\]
+
+\noindent
+Тут мы воспользовались табличным значением интеграла $\int_{-\infty}^{\infty}\frac{\sin x}{x}dx=\pi$.
+Теперь можно вычислять вторую производную, так как получающийся интеграл
+сходится:
+
+\[
+\frac{\partial^{2}}{\partial\alpha^{2}}J(\alpha)=\frac{\partial}{\partial\alpha}\int_{-\infty}^{\infty}\frac{\sin(\alpha x)}{x^{2}+1}\cdot\frac{dx}{x}=\int_{-\infty}^{\infty}\frac{\cos(\omega x)}{x^{2}+a^{2}}\cdot dx=J(\alpha)
+\]
+
+\noindent
+Мы получили замкнутое дифференциальное уравнение на функцию $J(\alpha)$.
+Это уравнение линейно и его коэффициенты постоянны, поэтому оно
+решается с помощью подстановки $J(\alpha)=e^{\lambda\alpha}$. Такая
+подстановка приводит к алгебраическому уравнению на $\lambda$: $\lambda^{2}=1\Rightarrow\lambda=\pm1$
+и, следовательно, общее решение уравнения записывается как:
+
+\[
+J(\alpha)=C_{1}e^{\alpha}+C_{2}e^{-\alpha}
+\]
+
+\noindent
+Константа $C_{1}$ должна быть положена равной нулю. Это связано с
+тем, что исходный интеграл, очевидно, ограничен: $\left|J\left(\alpha\right)\right|\leq\left|\int_{-\infty}^{\infty}\frac{1}{x^{2}+1}dx\right|=\pi$.
+Константу $C_{2}$ можно найти из значения интеграла при $\alpha=0\Rightarrow J(0)=\pi$.
+Значит, наш интеграл записывается как:
+
+\[
+J(\alpha)=\pi e^{-\alpha}
+\]
+
+\noindent
+Ответ был получен в предположении $\alpha>0$. Поскольку исходный
+интеграл зависит лишь от модулей параметров $a$ и $\omega$, то ответ
+в общем виде записывается как:
+
+\[
+I_{1}(a,\omega)=\frac{\pi}{\left|a\right|}e^{-\left|a\omega\right|}
+\]
+
+\noindent
+Кроме того, заметим, что:
+\[
+I_{2}(a,\omega)=-\frac{\partial}{\partial\omega}I_{1}(a,\omega)=\pi e^{-\left|\alpha\omega\right|}{\rm sign}\omega
+\]
+
+
+
+\subsection*{Задача 4 (экспоненциальняа регуляризация)}
+
+Используя экспоненциальную регуляризацию, найти ``сумму'' ряда из
+натуральных чисел 
+\[
+\sum_{n=1}^{\infty}n
+\]
+
+
+
+\paragraph{Указание}
+
+Суть экспоненциальной регуляризации сводится к домножению на $e^{-\varepsilon n}$
+и рассмотрению поведения функции при $\varepsilon\to0$.
+
+
+\subsubsection*{Решение}
+
+Нам необходимо рассмотреть следующий ряд:
+\[
+S(\varepsilon)=\sum_{n=1}^{\infty}ne^{-\varepsilon n}
+\]
+
+\noindent
+Этот ряд можно представить как производную по $\varepsilon$ от геометрической
+прогрессии:
+\[
+S(\varepsilon)=-\frac{\partial}{\partial\varepsilon}\sum_{n=1}^{\infty}e^{-\varepsilon n}=-\frac{\partial}{\partial\varepsilon}\frac{e^{-\varepsilon}}{1-e^{-\varepsilon}}=\frac{e^{\varepsilon}}{(e^{\varepsilon}-1)^{2}}\cdot
+\]
+
+\noindent
+А теперь разложимся по $\varepsilon$, чтобы взять предел $\varepsilon\to0$:
+
+\begin{multline*}
+S\left(\varepsilon\right)=\left(\frac{1}{1+\varepsilon+\frac{1}{2}\varepsilon^{2}+\frac{1}{6}\varepsilon^{3}-1+o(\varepsilon^{3})}\right)^{2}\left(1+\varepsilon+\frac{\varepsilon^{2}}{2}+o(\varepsilon^{2})\right)=\\
+=\frac{1}{\varepsilon^{2}}\left(1+\frac{\varepsilon}{2}+\frac{\varepsilon^{2}}{6}+o(\varepsilon^{2})\right)^{-2}\left(1+\varepsilon+\frac{\varepsilon^{2}}{2}+o(\varepsilon^{2})\right)=\\
+=\frac{1}{\varepsilon^{2}}\left(1-\varepsilon-\frac{\varepsilon^{2}}{3}+\frac{3\varepsilon^{2}}{4}+o(\varepsilon^{2})\right)\left(1+\varepsilon+\frac{\varepsilon^{2}}{2}+o(\varepsilon^{2})\right)=\frac{1}{\varepsilon^{2}}-\frac{1}{12}+o(1)
+\end{multline*}
+
+
+
+\paragraph{Замечение}
+
+Дзета-функция Римана при ${\rm Re}\:z>1$ определяется как сумма ряда
+$\zeta(z)=\sum_{n=1}^{\infty}n^{-z}$. Используя экспоненциальную
+регуляризацию, мы, на самом деле, получили значение $\zeta(-1)=-\frac{1}{12}$.
+Эту функцию можно доопределить (единственным образом) и для ${\rm Re}\:z<1$
+так, чтобы полученная функция получилась аналитической (то есть имела
+все производные вплоть до бесконечного порядка везде, кроме некоторого
+набора особых точек); и значение в $z=-1$ получено именно в смысле
+аналитического продолжения. Этот результат означает, что (в определенном
+смысле) сумма всех натуральных чисел равна $-\frac{1}{12}$.
+
+
+\subsection*{Задачи для домашнего решения:}
+
+\noindent \textbf{Упражнение 1}
+
+\noindent Вычислите интеграл 
+
+\begin{equation}
+J(y)=\int_{0}^{\pi/2}\ln\left(y^2-\sin^2x\right)dx.\notag
+\end{equation}
+при $y>1$. 
+
+\noindent
+Через J(1) выражается значение следующего интеграла:
+$$
+\int_{0}^{\pi/2}\ln\left(\cos x\right) dx
+$$
+Его, однако, можно взять более простым способом. Сделайте это и сравните получающиеся ответы.
+
+\vspace{15pt}
+\noindent \textbf{Упражнение 2}
+
+\noindent Вычислите интеграл, сведя его к $B$-функции
+\begin{equation}
+I(n,m)=\int_{0}^{\pi/2}\sin^{n}x\cos^{m}xdx.\notag
+\end{equation}
+
+\vspace{15pt}
+\noindent \textbf{Упражнение 3}
+
+\noindent Вычислите интеграл, сведя его к $B$-функции
+
+\begin{equation}
+I(n,m,k)	=\int_{0}^{\infty}\frac{x^{n}}{(x^{m}+1)^{k}}dx.\notag
+\end{equation}
+
+\noindent Когда он сходится?
+
+\vspace{15pt}
+\noindent \textbf{Упражнение 4}
+
+\noindent Вычислите точно интегралы
+\begin{equation}
+I_{1}(\lambda)	=\int_{0}^{\infty}\frac{x\sin(\lambda x)}{x^{2}+1}dx,\notag
+\end{equation}
+\vspace{15pt}
+\begin{equation}
+I_{2}(\lambda)	=\int_{0}^{\infty}\frac{x\sin(\lambda x)}{(x^{2}+1)^{2}}dx.\notag
+\end{equation}
+
+\vspace{15pt}
+\noindent \textbf{Задача 1}
+
+\noindent Вычислите сведением к $\Gamma$-функции и к $B$-функции
+
+\begin{equation}
+I(m)	=\int_{0}^{\infty}\frac{\cos x}{x^{m}}dx \notag
+\end{equation}
+при $0<m<1$.
+
+\vspace{15pt}
+\noindent \textbf{Задача 2}
+
+\noindent Распределение Ферми определяется как
+
+\begin{equation}
+n_{F}(\epsilon)	=\frac{1}{e^{\epsilon/T}+1},\notag
+\end{equation}
+где $T>0$ - температура.
+
+\noindent Вычислите интеграл, зависящий от двух параметров
+\begin{equation}
+I(V,T)	=\int_{-\infty}^{\infty}d\epsilon\left(n_{F}(\epsilon-eV)-n_{F}(\epsilon)\right)\notag
+\end{equation}
+\noindent Такой интеграл возникает при вычислении электрического тока через туннельный контакт.
+
+\noindent Почему не работает следующее рассуждение?
+
+\noindent Разобьем интеграл на два:
+
+\begin{equation}
+I(V,T)	=\int_{-\infty}^{\infty}d\epsilon n_{F}(\epsilon-eV)-\int_{-\infty}^{\infty}d\epsilon n_{F}(\epsilon)\notag
+\end{equation}
+
+\noindent и сделаем сдвиг в первом интеграле $\epsilon'=\epsilon-eV$. Тогда
+
+\begin{equation} 
+I(V,T)	=\int_{-\infty}^{\infty}d\epsilon'n_{F}(\epsilon')-\int_{-\infty}^{\infty}d\epsilon n_{F}(\epsilon)=0 \notag
+\end{equation}
+
+\noindent \textit{Замечание: если немного подумать, ответ на задачу можно получить совсем без вычислений.}
+\end{document}
