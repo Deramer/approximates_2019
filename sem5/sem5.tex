@@ -23,7 +23,7 @@
 \noindent
 Для начала рассмотрим случай, когда $S^{'}(x)\ne0$ $\forall x\in [a;b]$. Имеем:
 $$
-\int_{a}^{b}e^{i\lambda S(x)}f(x)=\frac{1}{i\lambda}\left(\frac{1}{S^{'}(b)}f(b)e^{i\lambda S(b)}-\frac{1}{S^{'}(a)}f(a)e^{i\lambda S(a)}\right)-\frac{1}{i\lambda}\int_{a}^{b}e^{i\lambda S(x)}\frac{f(x)}{S^{'}(x)}dx
+\int_{a}^{b}e^{i\lambda S(x)}f(x)=\frac{1}{i\lambda}\left(\frac{1}{S^{'}(b)}f(b)e^{i\lambda S(b)}-\frac{1}{S^{'}(a)}f(a)e^{i\lambda S(a)}\right)-\frac{1}{i\lambda}\int_{a}^{b}e^{i\lambda S(x)}\frac{f^{'}(x)}{S^{'}(x)}dx
 $$
 Последующим интегрированием по частям легко показывается, что в главном приближении по $\lambda^{-1}$ ответ даётся внеинтегральным членом.
 
@@ -37,7 +37,7 @@ $$
 \noindent
 Последний интеграл равен:
 $$
-\int_{c}^{d}g(t)e^{i\lambda t^2}dt\approx g(0)\frac{1}{2}\sqrt{\frac{\pi}{2\lambda}}e^{i\pi/4}
+\int_{c}^{d}g(t)e^{i\lambda t^2}dt\approx g(0)\sqrt{\frac{\pi}{2\lambda}}e^{i\pi/4}
 $$
 Это легко получить, заметив, что из-за быстрых осцилляций интеграл набирается вблизи нуля и разложив $g(t)$ в ряд Тейлора. Кроме того, были использованы следующие интегралы с семинара 4:
 \[
@@ -45,7 +45,7 @@ $$
 \]
 Далее, вспоминая определение функции $g$, получаем, что 
 $$
-\int_{a}^{b}f(x)e^{i\lambda S(x)}dx=\frac{1}{2}f(x_0)\sqrt{\frac{2\pi}{\lambda S^{''}(x_0)}}e^{i\lambda S(x_0)}e^{i\pi/4}
+\int_{a}^{b}f(x)e^{i\lambda S(x)}dx=f(x_0)\sqrt{\frac{2\pi}{\lambda |S^{''}(x_0)|}}e^{i\lambda S(x_0)}e^{i\pi/4}
 $$
 Это и есть то, как работает метод стационарной фазы.
 
