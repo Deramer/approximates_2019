@@ -1,0 +1,378 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     12233,        370]
+NotebookOptionsPosition[     10409,        318]
+NotebookOutlinePosition[     10743,        333]
+CellTagsIndexPosition[     10700,        330]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["\:0421\:0435\:043c\:0438\:043d\:0430\:0440 4.", "Section",
+ CellChangeTimes->{{3.729543445373275*^9, 
+  3.729543452873308*^9}},ExpressionUUID->"8d1de8fd-8d63-48e3-9316-\
+37284f48a341"],
+
+Cell[CellGroupData[{
+
+Cell["\:0423\:043f\:0440\:0430\:0436\:043d\:0435\:043d\:0438e 1.", \
+"Subsection",
+ CellChangeTimes->{{3.729543462944199*^9, 3.7295434688594837`*^9}, 
+   3.729544753933136*^9},ExpressionUUID->"14e504f9-18ed-447b-bc2d-\
+c72e71f9be5b"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"sol", "[", "y_", "]"}], ":=", "SOLUTION"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Plot", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"sol", "[", "y", "]"}], ",", 
+     RowBox[{"NIntegrate", "[", 
+      RowBox[{
+       RowBox[{"Log", "[", 
+        RowBox[{
+         SuperscriptBox["y", "2"], "-", 
+         SuperscriptBox[
+          RowBox[{"Sin", "[", "x", "]"}], "2"]}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"x", ",", "0", ",", 
+         RowBox[{"\[Pi]", "/", "2"}]}], "}"}]}], "]"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"y", ",", "1.1", ",", "5"}], "}"}], ",", 
+   RowBox[{"PlotLegends", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+     "\"\<\:0412\:0430\:0448\:0435 \:0440\:0435\:0448\:0435\:043d\:0438\:0435\
+\>\"", ",", 
+      "\"\<\:0427\:0438\:0441\:043b\:0435\:043d\:043d\:043e\:0435\>\""}], 
+     "}"}]}]}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Clear", "[", "sol", "]"}]}], "Input",
+ CellChangeTimes->{{3.7295432647127867`*^9, 3.729543418357689*^9}, {
+  3.7295435114579573`*^9, 3.7295435557612343`*^9}, {3.729544790147505*^9, 
+  3.729544794927987*^9}},ExpressionUUID->"ba56ce5e-ca8c-49d1-b583-\
+505a9a96b4ca"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\:0423\:043f\:0440\:0430\:0436\:043d\:0435\:043d\:0438\:0435 2.", \
+"Subsection",
+ CellChangeTimes->{{3.72954356796663*^9, 
+  3.729543575486046*^9}},ExpressionUUID->"7c8ff238-c571-4cc2-aa87-\
+50c9f02750ae"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"sol", "[", 
+    RowBox[{"n_", ",", "m_"}], "]"}], ":=", "SOLUTION"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Plot3D", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"sol", "[", 
+      RowBox[{"n", ",", "m"}], "]"}], ",", 
+     RowBox[{"NIntegrate", "[", 
+      RowBox[{
+       RowBox[{
+        SuperscriptBox[
+         RowBox[{"Sin", "[", "x", "]"}], "m"], 
+        SuperscriptBox[
+         RowBox[{"Cos", "[", "x", "]"}], "n"]}], ",", 
+       RowBox[{"{", 
+        RowBox[{"x", ",", "0", ",", 
+         RowBox[{"\[Pi]", "/", "2"}]}], "}"}]}], "]"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"m", ",", "1", ",", "5"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"n", ",", "1", ",", "5"}], "}"}], ",", 
+   RowBox[{"PlotLegends", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+     "\"\<\:0412\:0430\:0448\:0435 \:0440\:0435\:0448\:0435\:043d\:0438\:0435\
+\>\"", ",", 
+      "\"\<\:0427\:0438\:0441\:043b\:0435\:043d\:043d\:043e\:0435\>\""}], 
+     "}"}]}], ",", 
+   RowBox[{"AxesLabel", "\[Rule]", "Automatic"}]}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Clear", "[", "sol", "]"}], ";"}]}], "Input",
+ CellChangeTimes->{{3.729543600959918*^9, 3.729543619571517*^9}, {
+   3.729543668559026*^9, 3.729543761134547*^9}, 3.729544060006117*^9, 
+   3.729544808067814*^9},ExpressionUUID->"c7f086e7-d4d0-43ac-b57f-\
+af5cd861d6f1"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\:0423\:043f\:0440\:0430\:0436\:043d\:0435\:043d\:0438\:0435 3.", \
+"Subsection",
+ CellChangeTimes->{{3.729543789526373*^9, 
+  3.7295437954266243`*^9}},ExpressionUUID->"5e68ece8-d43c-489c-86a0-\
+e4181cb7c50d"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"sol", "[", 
+    RowBox[{"n_", ",", "m_", ",", "k_"}], "]"}], ":=", "SOLUTION"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Plot3D", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"sol", "[", 
+      RowBox[{"1", ",", "m", ",", "k"}], "]"}], ",", 
+     RowBox[{"NIntegrate", "[", 
+      RowBox[{
+       RowBox[{"x", "/", 
+        SuperscriptBox[
+         RowBox[{"(", 
+          RowBox[{"1", "+", 
+           SuperscriptBox["x", "m"]}], ")"}], "k"]}], ",", 
+       RowBox[{"{", 
+        RowBox[{"x", ",", "0", ",", "\[Infinity]"}], "}"}]}], "]"}]}], "}"}], 
+   ",", 
+   RowBox[{"{", 
+    RowBox[{"m", ",", "2", ",", "5"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"k", ",", "2", ",", "5"}], "}"}], ",", 
+   RowBox[{"PlotLegends", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+     "\"\<\:0412\:0430\:0448\:0435 \
+\:0440\:0435\:0448\:0435\:043d\:0438\:0435, n=1\>\"", ",", 
+      "\"\<\:0427\:0438\:0441\:043b\:0435\:043d\:043d\:043e\:0435\>\""}], 
+     "}"}]}], ",", 
+   RowBox[{"AxesLabel", "\[Rule]", "Automatic"}]}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Clear", "[", "sol", "]"}]}], "Input",
+ CellChangeTimes->{{3.729543824534429*^9, 3.729543832352874*^9}, {
+   3.729543883036132*^9, 3.729543981559258*^9}, {3.729544026530612*^9, 
+   3.72954402863004*^9}, 
+   3.7295448313455973`*^9},ExpressionUUID->"54333e35-2220-45ec-b470-\
+504e98c60279"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\:0423\:043f\:0440\:0430\:0436\:043d\:0435\:043d\:0438\:0435 4.", \
+"Subsection",
+ CellChangeTimes->{{3.7295440961538887`*^9, 
+  3.7295441038650312`*^9}},ExpressionUUID->"66e77841-d087-431d-ad29-\
+5e518ef66b86"],
+
+Cell["\:041f\:0435\:0440\:0432\:044b\:0439 \:0438\:043d\:0442\:0435\:0433\
+\:0440\:0430\:043b.", "Text",
+ CellChangeTimes->{{3.7295442270631104`*^9, 
+  3.72954423808388*^9}},ExpressionUUID->"3054e893-9b5b-4bab-990b-\
+0a0f27acc76e"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"sol", "[", "\[Lambda]_", "]"}], ":=", "SOLUTION"}], " ", 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Plot", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"sol", "[", "\[Lambda]", "]"}], ",", 
+     RowBox[{"NIntegrate", "[", 
+      RowBox[{
+       RowBox[{"x", " ", 
+        RowBox[{
+         RowBox[{"Sin", "[", 
+          RowBox[{"\[Lambda]", " ", "x"}], "]"}], "/", 
+         RowBox[{"(", 
+          RowBox[{"1", "+", 
+           SuperscriptBox["x", "2"]}], ")"}]}]}], ",", 
+       RowBox[{"{", 
+        RowBox[{"x", ",", "0", ",", "\[Infinity]"}], "}"}]}], "]"}]}], "}"}], 
+   ",", 
+   RowBox[{"{", 
+    RowBox[{"\[Lambda]", ",", "2.5", ",", "6"}], "}"}], ",", 
+   RowBox[{"PlotLegends", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+     "\"\<\:0412\:0430\:0448\:0435 \:0440\:0435\:0448\:0435\:043d\:0438\:0435\
+\>\"", ",", 
+      "\"\<\:0427\:0438\:0441\:043b\:0435\:043d\:043d\:043e\:0435\>\""}], 
+     "}"}]}], ",", 
+   RowBox[{"AxesLabel", "\[Rule]", "Automatic"}]}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Clear", "[", "sol", "]"}]}], "Input",
+ CellChangeTimes->{{3.72954411562076*^9, 3.7295441351474648`*^9}, {
+   3.729544180917968*^9, 3.729544296680079*^9}, {3.729544496866414*^9, 
+   3.729544497462717*^9}, 
+   3.729544842218341*^9},ExpressionUUID->"9552a8a1-2acf-4786-994a-\
+4ccfae98e00e"],
+
+Cell["\:0412\:0442\:043e\:0440\:043e\:0439.", "Text",
+ CellChangeTimes->{{3.729544310147191*^9, 
+  3.729544313717599*^9}},ExpressionUUID->"d1b8958d-c87a-4efe-ac46-\
+4657d22d2af3"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"sol", "[", "\[Lambda]_", "]"}], ":=", "SOLUTION"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Plot", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"sol", "[", "\[Lambda]", "]"}], ",", 
+     RowBox[{"NIntegrate", "[", 
+      RowBox[{
+       RowBox[{"x", " ", 
+        RowBox[{
+         RowBox[{"Sin", "[", 
+          RowBox[{"\[Lambda]", " ", "x"}], "]"}], "/", 
+         SuperscriptBox[
+          RowBox[{"(", 
+           RowBox[{"1", "+", 
+            SuperscriptBox["x", "2"]}], ")"}], "2"]}]}], ",", 
+       RowBox[{"{", 
+        RowBox[{"x", ",", "0", ",", "\[Infinity]"}], "}"}]}], "]"}]}], "}"}], 
+   ",", 
+   RowBox[{"{", 
+    RowBox[{"\[Lambda]", ",", "2.5", ",", "6"}], "}"}], ",", 
+   RowBox[{"PlotLegends", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+     "\"\<\:0412\:0430\:0448\:0435 \:0440\:0435\:0448\:0435\:043d\:0438\:0435\
+\>\"", ",", 
+      "\"\<\:0427\:0438\:0441\:043b\:0435\:043d\:043d\:043e\:0435\>\""}], 
+     "}"}]}], ",", 
+   RowBox[{"AxesLabel", "\[Rule]", "Automatic"}]}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Clear", "[", "sol", "]"}]}], "Input",
+ CellChangeTimes->{{3.729544329903729*^9, 3.7295443540191727`*^9}, {
+   3.729544488630499*^9, 3.729544489228436*^9}, 
+   3.72954484709102*^9},ExpressionUUID->"44828691-747e-457b-9ae7-\
+d22016a5c038"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\:0417\:0430\:0434\:0430\:0447\:0430 1.", "Subsection",
+ CellChangeTimes->{{3.729544368990263*^9, 
+  3.729544396597972*^9}},ExpressionUUID->"616c9852-dd4e-460d-84cf-\
+12888db2d3f6"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"sol", "[", "m_", "]"}], ":=", "SOLUTION"}], " ", 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Plot", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"sol", "[", "m", "]"}], ",", 
+     RowBox[{"Quiet", "[", 
+      RowBox[{"NIntegrate", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"Cos", "[", "x", "]"}], "/", 
+         SuperscriptBox["x", "m"]}], ",", 
+        RowBox[{"{", 
+         RowBox[{"x", ",", "0", ",", "\[Infinity]"}], "}"}]}], "]"}], "]"}]}],
+     "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"m", ",", "0.1", ",", "0.9"}], "}"}], ",", 
+   RowBox[{"PlotLegends", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+     "\"\<\:0412\:0430\:0448\:0435 \:0440\:0435\:0448\:0435\:043d\:0438\:0435\
+\>\"", ",", 
+      "\"\<\:0427\:0438\:0441\:043b\:0435\:043d\:043d\:043e\:0435\>\""}], 
+     "}"}]}], ",", 
+   RowBox[{"AxesLabel", "\[Rule]", "Automatic"}]}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Clear", "[", "sol", "]"}]}], "Input",
+ CellChangeTimes->{{3.729544442334277*^9, 3.729544479851516*^9}, {
+   3.729544511222167*^9, 3.729544534286607*^9}, 
+   3.729544857907894*^9},ExpressionUUID->"6a92d4b1-121d-4217-973f-\
+3d52790f1512"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1301, 744},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"11.1 for Linux x86 (64-bit) (April 18, 2017)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 190, 3, 65, "Section", "ExpressionUUID" -> \
+"96725d41-9804-499f-a0da-ec631ef0cbc7"],
+Cell[CellGroupData[{
+Cell[795, 29, 233, 4, 45, "Subsection", "ExpressionUUID" -> \
+"7eb05757-62cd-446e-b47f-9dfa7f26a796"],
+Cell[1031, 35, 1213, 33, 87, "Input", "ExpressionUUID" -> \
+"ba56ce5e-ca8c-49d1-b583-505a9a96b4ca"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2281, 73, 212, 4, 45, "Subsection", "ExpressionUUID" -> \
+"241e17ec-6679-4dde-8ab2-a7c2bbabdc55"],
+Cell[2496, 79, 1399, 40, 107, "Input", "ExpressionUUID" -> \
+"c7f086e7-d4d0-43ac-b57f-af5cd861d6f1"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3932, 124, 215, 4, 45, "Subsection", "ExpressionUUID" -> \
+"e1916322-7df6-45db-bac6-a44c53cea467"],
+Cell[4150, 130, 1411, 40, 119, "Input", "ExpressionUUID" -> \
+"54333e35-2220-45ec-b470-504e98c60279"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5598, 175, 217, 4, 45, "Subsection", "ExpressionUUID" -> \
+"1623978a-d14f-415d-bc80-8c9ade31716c"],
+Cell[5818, 181, 231, 4, 31, "Text", "ExpressionUUID" -> \
+"bbf12658-62b7-4448-b3e1-02c9dc902dc6"],
+Cell[6052, 187, 1367, 38, 88, "Input", "ExpressionUUID" -> \
+"9552a8a1-2acf-4786-994a-4ccfae98e00e"],
+Cell[7422, 227, 179, 3, 31, "Text", "ExpressionUUID" -> \
+"5b43838b-1486-4a32-b703-9dbe51bd46b1"],
+Cell[7604, 232, 1346, 38, 119, "Input", "ExpressionUUID" -> \
+"44828691-747e-457b-9ae7-d22016a5c038"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8987, 275, 187, 3, 45, "Subsection", "ExpressionUUID" -> \
+"7f42c47c-aec2-493a-8cce-86df9f07e91d"],
+Cell[9177, 280, 1204, 34, 81, "Input", "ExpressionUUID" -> \
+"6a92d4b1-121d-4217-973f-3d52790f1512"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
