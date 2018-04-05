@@ -1,0 +1,171 @@
+\documentclass[a4paper,12pt]{article}
+
+%%	Fonts
+\usepackage{cmap}
+\usepackage{mathtext}
+\usepackage{hyperref}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage[scaled]{helvet}
+%\usepackage{fullpage}
+
+% 	Math packages
+\usepackage{amsmath,amsfonts,amssymb,amsthm,mathtools}
+\usepackage{icomma}
+\usepackage{euscript}
+\usepackage{mathrsfs}
+\usepackage{tensor}
+\usepackage{physics}
+\usepackage{stackrel}
+% 	My math operartors
+%\mathtoolsset{showonlyrefs=true}
+\newcommand{\bigo}[1]   {\,\ensuremath{\mathop{}\mathopen{}\mathcal{O}\mathopen{}\displaystyle\left(#1\right)}}
+\newcommand{\smallo}[1]	{\,\scriptstyle\mathop{}\mathopen{}\mathcal{O}\mathopen{}\displaystyle\left(#1\right) }
+\DeclareMathOperator{\arcsinh}{arcsinh}
+\DeclareMathOperator{\arctanh}{arctanh}
+\newcommand*{\hm}[1]{#1\nobreak\discretionary{} {\hbox{$\mathsurround=0pt #1$}}{}}
+
+%%	Graphics
+\usepackage{graphicx}
+\graphicspath{{images/}}
+\setlength\fboxsep{3pt}
+\setlength\fboxrule{1pt}
+\usepackage{wrapfig}
+% 	Tables
+\usepackage{array,tabularx,tabulary,booktabs}
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{caption}
+%\usepackage{subcaption}
+\usepackage{subfig}
+%	Itemize
+\usepackage{enumitem}
+\setlist[itemize]{topsep=0pt, leftmargin=0.2in}
+
+%% 	Theorems
+\theoremstyle{plain} % Это стиль по умолчанию, его можно не переопределять.
+ \newtheorem{theorem}{Теорема}[section]
+ \newtheorem{proposition}{Утверждение}
+%\newtheorem{proposition}[theorem]{Утверждение}
+ \newtheorem{lemma}{Лемма}
+\theoremstyle{definition} % "Определение"
+ \newtheorem{definition}{Определение}[section]
+ \newtheorem{corollary}{Следствие}[theorem]
+ \newtheorem{problem}{Задача}[section]
+\theoremstyle{remark} % "Примечание"
+ \newtheorem*{solution}{Решение}
+\renewcommand\qedsymbol{$\blacksquare$}
+\newcommand{\proofbegin}{\ensuremath{\blacktriangle}\nopunct}
+\newcommand{\contbegin}{\footnotesize{\textcircled{\scriptsize!}}\normalsize \ }
+\newcommand{\contend}{\ensuremath{\otimes}}
+\newcommand{\vect}[1]{\ensuremath{\mathbf{#1}}}
+
+%%	Programming
+\usepackage{etoolbox} % логические операторы
+
+%%	Page
+\usepackage[14pt]{extsizes} % Возможность сделать 14-й шрифт
+\usepackage{geometry} % Простой способ задавать поля
+	\geometry{top=20mm}
+	\geometry{bottom=20mm}
+	\geometry{left=12mm}
+	\geometry{right=12mm}
+	\geometry{bindingoffset=0mm}
+%\linespread{0.01}
+%\usepackage{mathpazo}
+%usepackage{fancyhdr} % Колонтитулы
+% 	\pagestyle{fancy}
+% 	\renewcommand{\headrulewidth}{.1mm}  % Толщина линейки, отчеркивающей верхний колонтитул
+% 	\lfoot{}
+% 	\rfoot{}
+% 	\rhead{}
+% 	\chead{}
+% 	\lhead{}
+ 	% \cfoot{Нижний в центре} % По умолчанию здесь номер страницы
+\usepackage{setspace} % Интерлиньяж
+\onehalfspacing % Интерлиньяж 1.5
+%\doublespacing % Интерлиньяж 2
+%\singlespacing % Интерлиньяж 1
+%\linespread{0.01}
+\usepackage{lastpage} % Узнать, сколько всего страниц в документе.
+\usepackage{soul} % Модификаторы начертания
+%\usepackage{hyperref}
+\usepackage[usenames,dvipsnames,svgnames,table,rgb]{xcolor}
+\hypersetup{					% Гиперссылки
+    unicode=true,           	% русские буквы в раздела PDF
+    pdftitle={},   				% Заголовок
+    pdfauthor={Nestyuk Arseniy},	% Автор
+    pdfsubject={},      		% Тема
+    pdfcreator={Nestyuk Arseniy}, 	% Создатель
+    pdfproducer={}, 			% Производитель
+    pdfkeywords={Asymptotic Analysis} {Integral} {Gamma-function}, % Ключевые слова
+    colorlinks=true,       		% false: ссылки в рамках; true: цветные ссылки
+    linkcolor=red,          	% внутренние ссылки
+    citecolor=green,        	% на библиографию
+    filecolor=magenta,      	% на файлы
+    urlcolor=cyan           	% на URL
+}
+\usepackage{multicol} % Несколько колонок
+
+% 	Titel
+\author{}
+\title{}
+\date{\today}
+
+\graphicspath{ {images/} }
+
+
+\begin{document}
+\section*{Задание к семинару по Wolfram Mathematica}
+
+\subsection*{Упражнение 1: разминка}
+Вспомните упражнение 4 семинара 2, где мы заменяли сумму
+\begin{equation}
+\sum_{n=0}^{\infty} n^a e^{-bn}
+\end{equation}
+на интеграл. Вычислите сумму и интеграл точно для значений $a=1.1,\ b=0.1$, и проверьте, насколько оправдана такая замена. Сумма и интеграл должны быть написаны значками суммы и интеграла, а не функциями Sum and Integrate.
+
+\subsection*{Упражнение 2: поиск нужных корней}
+В задаче 2 семинара 1 мы искали длины промежутков, на которых выполняется
+\begin{equation}
+	\left| \cos x + \alpha \frac{\sin x}{x} \right| > 1.
+\end{equation}
+Найдите их численно для некоторого малого $\alpha$.
+
+\subsection*{Упражнение 3: метод перевала}
+Напишите функцию, которая принимает один аргумент, функцию $f(x)$, и возвращает вычисленный методом перевала интеграл
+\begin{equation}
+	\int_{-\infty}^{\infty} e^{f(x)} \dd x.
+\end{equation}
+Проверять условия применимости метода перевала не надо; можно считать, что все вторые производные в перевальных точках отличны от нуля; можно считать, что перевальных точек конечное количество.
+
+\subsection*{Упражнение 4: асимптотические разложения}
+В упражнениях 3 и 4 семинара 5 были найдены асимптотические ряды для интегрального косинуса и неполной гамма-функции соответственно. Выберите ту из этих функций, для которой вы нашли асимптотическое разложение (если не нашли, идите и сдайте пятый семинар, а потом возвращайтесь). Просуммируйте асимптотический ряд до минимального члена и постройте результат на одном графике с функцией. 
+
+Найдите разницу между рядом исходной функцией и рядом, просуммированным до минимального члена, для некоторого большого $x$. Найдите эту разницу для только первого (нескольких первых) членов разложения; для ряда, просумированного дальше, чем до минимального члена. Сделайте выводы и сообщите их преподавателю.
+
+\subsection*{Задача 1: Задача трёх тел}
+Классическая задача небесной механики состоит в определении траекторий движения трёх тел, притягивающихся по закону Ньютона. Таки это проблема: в общем случае задача не имеет аналитических решений. Однако картинки обычно получаются интересные, поэтому сегодня мы будем решать её численно. Посмотрите на \href{https://ru.wikipedia.org/wiki/Задача_трёх_тел}{статью в Википедии}. Справа показывают мультик, от вас я жду такого же (не считая указания центра масс).
+
+Для упрощения решения все массы будем считать равными 1. Гравитационная постоянная, конечно, тоже равна 1. Найдите численное решение системы дифференциальных уравнений для трёх тел, которые изначально покоились, находясь в точках (0,0), (0,1) и (2,0).
+
+Hints: Три точки, очевидно, всегда находятся в одной плоскости. Гравитационное притяжение их из этой плоскости не выводит. Поэтому все радиус-вектора можно считать двумерными. 
+
+Основная функция определяется словами ``численное решение диффуров''. Она прекрасно работает с системами уравнений. Обратите внимание на то, что в правой части уравнений шесть раз повторяется относительно громоздкая конструкция из разности векторов, делённой на модуль разности в степени; если вы создадите функцию двух векторов, возвращающую эту конструкцию, количество кода значительно уменьшится. Построить график параметрически заданных функций можно с помощью ParametricPlot. Показ мультиков в математике мы разбирали на семинаре.
+
+\subsection*{Задача 2: Параметрический резонанс}
+
+В семинаре про преобразование Фурье была разобрана задача (2) про маятник (или грузик на пружинке, или осциллятор), который возмущается периодической внешней силой 
+\begin{equation}
+	f(t) = \begin{cases}
+		-f_0,& -T/2<t<0, \\
+		f_0,&  0<t<T/2.
+	\end{cases}
+\end{equation}
+
+Мы обнаружили, что если частота маятника совпадает с одним из значений $2\pi n/T$, то наблюдается параметрический резонанс и неограниченный рост амплитуды колебаний, линейный по времени. Конечно, при достаточно большой амплитуде предположение, положенное в основу решения, $\sin \phi \approx \phi$, неверно.
+
+Решите точное уравнение численно и посмотрите, когда заканчивается рост амплитуды и что происходит дальше.
+
+\end{document}
