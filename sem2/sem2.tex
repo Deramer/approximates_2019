@@ -8,6 +8,8 @@
 \usepackage{amsmath}
 \usepackage{feynmp}
 \usepackage{caption}
+\usepackage{multicol}
+\usepackage[inline]{enumitem}
 \usepackage[left=2cm,right=2cm, top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
 \begin{document}
 
@@ -21,7 +23,7 @@
 	\item Метод перевала или стационарной фазы
 \end{itemize}
 На данном семинаре будут рассмотрены первые 2 метода.
-\section{Ликбез}
+\section*{Ликбез}
 Следующие интегралы будут часто использоваться в курсе:
 \begin{equation}\label{eq:e1}
 \int_{-\infty}^{+\infty} e^{-x^2} dx= \sqrt{\pi}
@@ -52,9 +54,9 @@ $$
 I(\lambda)\approx0=C-\frac{\pi}{2}
 $$
 Отсюда, $C=\pi/2$ и $I(0)=\pi/2$.
-Это был пример вычисления интеграла с параметром. Более подробно эта тема будет изучаться в лекции №4.
+Это был пример вычисления интеграла с параметром. Более подробно эта тема будет изучаться в лекции №3.
 
-\subsection{Оценка рядов}
+\subsection*{Оценка рядов}
 В некоторых случаях можно с хорошей точностью оценить ряд при помощи формулы:
 $$
 \sum_{n=0}^{\infty} f(n)\approx\int_{0}^{\infty} dn f(n)
@@ -63,7 +65,7 @@ $$
 $$
 \frac{|f(n)-f(n-1)|}{|f(n)|}\ll1
 $$
-\section{Задача 1}
+\section*{Задача 1}
 
 Найдём асимптотики интеграла при $x\gg1$ и $x\ll1$:
 \[
@@ -72,7 +74,7 @@ I(x)=\int_{0}^{x}\frac{1-\cos t}{t}dt
 
 
 
-\subsection{Решение}
+\subsection*{Решение}
 
 Подынтегральная функция аналитична в нуле, поэтому при $x\ll1$ можно
 просто разложить $\cos t$ в ряд Тейлора; имеем:
@@ -107,7 +109,7 @@ I\left(x\right)=\int_{1}^{x}\frac{dt}{t}+O(1)\approx\ln x
 дает ответ $\ln x+C+o(1)$, где $C\approx0.577$ - постоянная Эйлера-Маскерони.
 
 
-\section{Задача 2}
+\section*{Задача 2}
 
 Найдём асимптотики интеграла при $a\gg b$ и $a\ll b$:
 \[
@@ -116,7 +118,7 @@ I(a,b)=\int_{0}^{\infty}\frac{\exp(-x/a)}{\sqrt{x(x+b)}}dx
 
 
 
-\subsection{Решение}
+\subsection*{Решение}
 
 Обезразмерим интеграл, введя переменную $t=\frac{x}{a}$:
 \[
@@ -187,7 +189,7 @@ I\left(\frac{b}{a}\right)\approx2\ln\left(\sqrt{\frac{a}{b}}+\sqrt{\frac{a}{b}+1
 (тут мы выбросили малые константные члены на фоне большой основной логарифмической асимптотики).
 
 
-\section{Задача 3}
+\section*{Задача 3}
 
 Найдём асимптотики интеграла при $a\ll b$ и $a\gg b$:
 \[
@@ -196,7 +198,7 @@ I\left(a,b\right)=\int_{0}^{\infty}\frac{\sin(\frac{x}{a})}{x(x^{2}+b^{2})}dx
 
 
 
-\subsection{Решение}
+\subsection*{Решение}
 
 Обезразмерим интеграл, введя переменную $t=\frac{x}{a}$:
 \[
@@ -223,10 +225,59 @@ I\left(\frac{b}{a}\right)\approx\int_{0}^{\infty}\frac{dt}{t^{2}+\left(\frac{b}{
 \[
 I\left(\frac{b}{a}\right)\approx\int_{0}^{\infty}\frac{\sin x}{x\frac{b^{2}}{a^{2}}}dx=\frac{\pi}{2}\cdot\frac{a^{2}}{b^{2}} \Rightarrow I(a,b) \approx \frac{\pi}{2 b^2}
 \]
+
+\section*{Задача 4}
+
+Вычислить в главном приближении интеграл:
+
+$$
+I=\int_{0}^{2\pi}d\theta \exp\left[-\alpha\left(\frac{\theta}{2}+\sin\theta\right)\right],
+$$
+а также найти первую ненулевую поправку к нему в двух случаях:
+\begin{multicols}{2}
+\begin{enumerate}[label=\arabic*)]
+    \item $\alpha\ll1$;
+    \item $\alpha\gg1$.
+\end{enumerate}
+\end{multicols}
+\noindent
+
+\subsection*{Решение}
+
+\paragraph{Случай $\alpha\ll 1$}
+
+На всей области интегрирования аргумент экспоненты мал и можно пользоваться разложением в ряд Тейлора:
+
+\[
+I\approx\int_{0}^{2\pi}d\theta\left(1-\alpha\left(\frac{\theta}{2}+\sin\theta\right)\right)=2\pi\left(1-\alpha/2\right).
+\]
+
+\paragraph{Случай $\alpha\gg 1$}
+
+В этом случае интеграл набирается вблизи 0 (см. рис.).
+
+\begin{figure}[ht]
+\includegraphics[width=0.8\linewidth]{Task_4.png}
+\caption{График функции $\frac{\theta}{2}+\sin\theta$.}
+\label{exp_plot}
+\end{figure}
+
+\noindent
+В первом приближении получаем:
+
+\[
+I\approx\int_0^{2\pi}d\theta\exp\left[-\frac{3}{2}\alpha\right]=\frac{2}{3\alpha}\left(1-e^{-3\pi\alpha}\right)\approx\frac{2}{3\alpha}.
+\]
+Заметим, что в данном случае $e^{-3\pi\alpha}$ не является первой поправкой. Действительно, дополнительным источником поправок является разложение синуса в экспоненте до кубического члена и далее. Т.к. интеграл набирается на $\theta\sim\alpha^{-1}$, то поправка от разложения синуса будет иметь степенную малость ($\sim\alpha^{-3}$), а не экспоненциальную. Найдём теперь численный коэффициент перед этой поправкой:
+
+\[
+I\approx\int_0^{2\pi}d\theta\exp\left[-\frac{3}{2}\alpha+\alpha\theta^3/6\right]\approx\frac{2}{3\alpha}+\frac{1}{6}\alpha\int_0^{2\pi}d\theta\theta^3e^{-3\alpha/2}\approx\frac{2}{3\alpha}+\frac{16}{81\alpha^3}.
+\]
+В последнем равенстве мы опять отбросили граничные члены в интеграле из-за их экспоненциальной малости.
+
 \newpage
 
-
-\section{Задачи для домашнего решения}
+\section*{Задачи для домашнего решения}
 \noindent \textbf{Упражнение 1}
 
 \noindent Пусть $a,b>0$. Найдите асимптотическое выражение для следующего интеграла:
