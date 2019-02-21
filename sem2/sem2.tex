@@ -249,7 +249,7 @@ $$
 На всей области интегрирования аргумент экспоненты мал и можно пользоваться разложением в ряд Тейлора:
 
 \[
-I\approx\int_{0}^{2\pi}d\theta\left(1-\alpha\left(\frac{\theta}{2}+\sin\theta\right)\right)=2\pi\left(1-\alpha/2\right).
+I\approx\int_{0}^{2\pi}d\theta\left(1-\alpha\left(\frac{\theta}{2}+\sin\theta\right)\right)=2\pi\left(1-3\pi\alpha/2\right).
 \]
 
 \paragraph{Случай $\alpha\gg 1$}
@@ -266,12 +266,12 @@ I\approx\int_{0}^{2\pi}d\theta\left(1-\alpha\left(\frac{\theta}{2}+\sin\theta\ri
 В первом приближении получаем:
 
 \[
-I\approx\int_0^{2\pi}d\theta\exp\left[-\frac{3}{2}\alpha\right]=\frac{2}{3\alpha}\left(1-e^{-3\pi\alpha}\right)\approx\frac{2}{3\alpha}.
+I\approx\int_0^{2\pi}d\theta\exp\left[-\frac{3}{2}\alpha\theta\right]=\frac{2}{3\alpha}\left(1-e^{-3\pi\alpha}\right)\approx\frac{2}{3\alpha}.
 \]
 Заметим, что в данном случае $e^{-3\pi\alpha}$ не является первой поправкой. Действительно, дополнительным источником поправок является разложение синуса в экспоненте до кубического члена и далее. Т.к. интеграл набирается на $\theta\sim\alpha^{-1}$, то поправка от разложения синуса будет иметь степенную малость ($\sim\alpha^{-3}$), а не экспоненциальную. Найдём теперь численный коэффициент перед этой поправкой:
 
 \[
-I\approx\int_0^{2\pi}d\theta\exp\left[-\frac{3}{2}\alpha+\alpha\theta^3/6\right]\approx\frac{2}{3\alpha}+\frac{1}{6}\alpha\int_0^{2\pi}d\theta\theta^3e^{-3\alpha/2}\approx\frac{2}{3\alpha}+\frac{16}{81\alpha^3}.
+I\approx\int_0^{2\pi}d\theta\exp\left[-\frac{3}{2}\alpha\theta+\alpha\theta^3/6\right]\approx\frac{2}{3\alpha}+\frac{1}{6}\alpha\int_0^{2\pi}d\theta\theta^3e^{-3\alpha\theta/2}\approx\frac{2}{3\alpha}+\frac{16}{81\alpha^3}.
 \]
 В последнем равенстве мы опять отбросили граничные члены в интеграле из-за их экспоненциальной малости.
 
